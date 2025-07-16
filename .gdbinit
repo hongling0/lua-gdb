@@ -6,7 +6,7 @@ define pl
         set $base_ci = &($L->base_ci)
         set $current_ci=$L->ci
         while $base_ci!=$current_ci
-            set $current_cl=((union GCUnion*)$current_ci->func->value_.gc).cl
+            set $current_cl=((union GCUnion*)$current_ci->func->p.val.value_.gc).cl
             set $islua=$current_ci->callstatus&(1<<1)
             if $islua
                 set $proto=$current_cl.l.p
